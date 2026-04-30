@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery — RGB Art Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Over+the+Rainbow&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <header>
+    <nav>
+      <a href="index.html" class="nav-logo"><img src="assets/images/logo.svg" alt="" />RGB Art Studio</a>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="exhibitions.html">Exhibitions</a></li>
+        <!-- <li><a href="education.html">Education</a></li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── Main ── -->
+  <main class="portfolio-main">
+    <div class="portfolio-header">
+      <h1>Gallery</h1>
+      <p>Portfolio of Works</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item" onclick="openLightbox('Against Steelwork', 'Watercolor · 18×14 in', 'assets/paintings/RozaBayrak_AgainstSteelwork_18h14w.jpg', 'exhibitions.html#tnws-2026')">
+        <img src="assets/paintings/RozaBayrak_AgainstSteelwork_18h14w.jpg" alt="Against Steelwork" />
+        <div class="portfolio-overlay">
+          <span class="title">Against Steelwork</span>
+          <span class="meta">Watercolor · 18×14 in</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openLightbox('Island on Pause', 'Watercolor · 14×21 in', 'assets/paintings/RozaBayrak_IslandOnPause_14h21w.jpg')">
+        <img src="assets/paintings/RozaBayrak_IslandOnPause_14h21w.jpg" alt="Island on Pause" />
+        <div class="portfolio-overlay">
+          <span class="title">Island on Pause</span>
+          <span class="meta">Watercolor · 14×21 in</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openLightbox('Hold Up I', 'Intaglio on Copper Plate · Chine collé, À la poupée · 3×3 in', 'assets/prints/RozaBayrak_HoldUp_3h3w.jpg')">
+        <img src="assets/prints/RozaBayrak_HoldUp_3h3w.jpg" alt="Hold Up I" />
+        <div class="portfolio-overlay">
+          <span class="title">Hold Up I</span>
+          <span class="meta">Intaglio on Copper Plate · Chine collé, À la poupée · 3×3 in</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openLightbox('Hold Up II', 'Intaglio on Copper Plate · 3×3 in', 'assets/prints/RozaBayrak_HoldUp_state2_3h3w.jpg')">
+        <img src="assets/prints/RozaBayrak_HoldUp_2_3h3w.jpg" alt="Hold Up II" />
+        <div class="portfolio-overlay">
+          <span class="title">Hold Up II</span>
+          <span class="meta">Intaglio on Copper Plate · 3×3 in</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openLightbox('Hold Up III', 'Intaglio on Copper Plate · Chine collé, Two Layers · 3×3 in', 'assets/prints/RozaBayrak_HoldUp_state3_3h3w.jpg')">
+        <img src="assets/prints/RozaBayrak_HoldUp_3_3h3w.jpg" alt="Hold Up III" />
+        <div class="portfolio-overlay">
+          <span class="title">Hold Up III</span>
+          <span class="meta">Intaglio on Copper Plate · Chine collé, Two Layers · 3×3 in</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openLightbox('Untitled', 'Charcoal · 18×24 in', 'assets/drawings/knight.png')">
+        <img src="assets/drawings/knight.png" alt="Untitled" />
+        <div class="portfolio-overlay">
+          <span class="title">Untitled</span>
+          <span class="meta">Charcoal · 18×24 in</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openLightbox('Art Peels', 'Mixed media · 16×20 in', 'assets/mixedmedia/artpeels.jpg', 'exhibitions.html#ncc-2026')">
+        <img src="assets/mixedmedia/artpeels.jpg" alt="Art Peels" />
+        <div class="portfolio-overlay">
+          <span class="title">Art Peels</span>
+          <span class="meta">Mixed media · 16×20 in</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" onclick="openLightbox('Untitled', 'Intaglio on Copper Plate · 5×7 in', 'assets/prints/RozaBayrak_Untitled_5h7w.jpg')">
+        <img src="assets/prints/RozaBayrak_Untitled_5h7w.jpg" alt="Untitled" />
+        <div class="portfolio-overlay">
+          <span class="title">Untitled</span>
+          <span class="meta">Intaglio on Copper Plate · 5×7 in</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── Lightbox ── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+      <div class="lightbox-caption">
+        <p class="title" id="lightbox-title"></p>
+        <p class="meta" id="lightbox-meta"></p>
+        <a class="lightbox-exhibit-link" id="lightbox-exhibit-link" href="#" target="_blank" rel="noopener">View exhibition →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 RGB Art Studio</span>
+      <div class="footer-contact">
+        <a href="https://instagram.com/thergbart" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          @thergbart
+        </a>
+        <a href="mailto:rgbayrak@gmail.com">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+          rgbayrak@gmail.com
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function openLightbox(title, meta, src, exhibitUrl) {
+      document.getElementById('lightbox-title').textContent = title;
+      document.getElementById('lightbox-meta').textContent = meta;
+      const img = document.getElementById('lightbox-image');
+      img.src = src;
+      img.alt = title;
+      const link = document.getElementById('lightbox-exhibit-link');
+      if (exhibitUrl) { link.href = exhibitUrl; link.style.display = 'inline'; } else { link.style.display = 'none'; }
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox(event) {
+      if (event && event.target !== document.getElementById('lightbox') && !event.target.classList.contains('lightbox-close')) return;
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>
