@@ -14,13 +14,17 @@
   <!-- ── Navigation ── -->
   <header>
     <nav>
-      <a href="index.html" class="nav-logo"><img src="assets/images/logo.svg" alt="" />RGB Art Studio</a>
+      <a href="gallery.html" class="nav-logo"><img src="assets/images/logo.svg" alt="" />RGB Art Studio</a>
       <ul class="nav-links">
-        <li><a href="index.html">About</a></li>
         <li><a href="gallery.html" class="active">Gallery</a></li>
         <li><a href="exhibitions.html">Exhibitions</a></li>
+        <!-- <li><a href="studio.html">Studio</a></li> -->
         <!-- <li><a href="education.html">Education</a></li> -->
+        <li><a href="index.html">About</a></li>
       </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
@@ -33,64 +37,64 @@
 
     <div class="portfolio-grid">
 
-      <div class="portfolio-item" onclick="openLightbox('Against Steelwork', 'Watercolor · 18×14 in', 'assets/paintings/RozaBayrak_AgainstSteelwork_18h14w.jpg', 'exhibitions.html#tnws-2026')">
-        <img src="assets/paintings/RozaBayrak_AgainstSteelwork_18h14w.jpg" alt="Against Steelwork" />
+      <div class="portfolio-item" onclick="openLightbox('Against Steelwork', 'Watercolor · 18×14 in', 'assets/paintings/AgainstSteelwork_18h14w.jpg', 'exhibitions.html#tnws-2026')">
+        <img src="assets/paintings/AgainstSteelwork_18h14w.jpg" alt="Against Steelwork" />
         <div class="portfolio-overlay">
           <span class="title">Against Steelwork</span>
           <span class="meta">Watercolor · 18×14 in</span>
         </div>
       </div>
 
-      <div class="portfolio-item" onclick="openLightbox('Island on Pause', 'Watercolor · 14×21 in', 'assets/paintings/RozaBayrak_IslandOnPause_14h21w.jpg')">
-        <img src="assets/paintings/RozaBayrak_IslandOnPause_14h21w.jpg" alt="Island on Pause" />
+      <div class="portfolio-item" onclick="openLightbox('Island on Pause', 'Watercolor · 14×21 in', 'assets/paintings/IslandOnPause_14h21w.jpg')">
+        <img src="assets/paintings/IslandOnPause_14h21w.jpg" alt="Island on Pause" />
         <div class="portfolio-overlay">
           <span class="title">Island on Pause</span>
           <span class="meta">Watercolor · 14×21 in</span>
         </div>
       </div>
 
-      <div class="portfolio-item" onclick="openLightbox('Hold Up I', 'Intaglio on Copper Plate · Chine collé, À la poupée · 3×3 in', 'assets/prints/RozaBayrak_HoldUp_3h3w.jpg')">
-        <img src="assets/prints/RozaBayrak_HoldUp_3h3w.jpg" alt="Hold Up I" />
+      <div class="portfolio-item" onclick="openLightbox('Hold Up I', 'Intaglio on Copper Plate · Chine collé, À la poupée · 3×3 in', 'assets/prints/HoldUp_3h3w.jpg')">
+        <img src="assets/prints/HoldUp_3h3w.jpg" alt="Hold Up I" />
         <div class="portfolio-overlay">
           <span class="title">Hold Up I</span>
           <span class="meta">Intaglio on Copper Plate · Chine collé, À la poupée · 3×3 in</span>
         </div>
       </div>
 
-      <div class="portfolio-item" onclick="openLightbox('Hold Up II', 'Intaglio on Copper Plate · 3×3 in', 'assets/prints/RozaBayrak_HoldUp_state2_3h3w.jpg')">
-        <img src="assets/prints/RozaBayrak_HoldUp_2_3h3w.jpg" alt="Hold Up II" />
+      <div class="portfolio-item" onclick="openLightbox('Hold Up II', 'Intaglio on Copper Plate · 3×3 in', 'assets/prints/HoldUp_2_3h3w.jpg')">
+        <img src="assets/prints/HoldUp_2_3h3w.jpg" alt="Hold Up II" />
         <div class="portfolio-overlay">
           <span class="title">Hold Up II</span>
           <span class="meta">Intaglio on Copper Plate · 3×3 in</span>
         </div>
       </div>
 
-      <div class="portfolio-item" onclick="openLightbox('Hold Up III', 'Intaglio on Copper Plate · Chine collé, Two Layers · 3×3 in', 'assets/prints/RozaBayrak_HoldUp_state3_3h3w.jpg')">
-        <img src="assets/prints/RozaBayrak_HoldUp_3_3h3w.jpg" alt="Hold Up III" />
+      <div class="portfolio-item" onclick="openLightbox('Hold Up III', 'Intaglio on Copper Plate · Chine collé, Two Layers · 3×3 in', 'assets/prints/HoldUp_3_3h3w.jpg')">
+        <img src="assets/prints/HoldUp_3_3h3w.jpg" alt="Hold Up III" />
         <div class="portfolio-overlay">
           <span class="title">Hold Up III</span>
           <span class="meta">Intaglio on Copper Plate · Chine collé, Two Layers · 3×3 in</span>
         </div>
       </div>
 
-      <div class="portfolio-item" onclick="openLightbox('Untitled', 'Charcoal · 18×24 in', 'assets/drawings/knight.png')">
-        <img src="assets/drawings/knight.png" alt="Untitled" />
+      <div class="portfolio-item" onclick="openLightbox('Untitled', 'Charcoal · 18×24 in', 'assets/drawings/Untitled_18h24w.png')">
+        <img src="assets/drawings/Untitled_18h24w.png" alt="Untitled" />
         <div class="portfolio-overlay">
           <span class="title">Untitled</span>
           <span class="meta">Charcoal · 18×24 in</span>
         </div>
       </div>
 
-      <div class="portfolio-item" onclick="openLightbox('Art Peels', 'Mixed media · 16×20 in', 'assets/mixedmedia/artpeels.jpg', 'exhibitions.html#ncc-2026')">
-        <img src="assets/mixedmedia/artpeels.jpg" alt="Art Peels" />
+      <div class="portfolio-item" onclick="openLightbox('Art Peels', 'Mixed media · 16×20 in', 'assets/mixedmedia/ArtPeels_16h20w.jpg', 'exhibitions.html#ncc-2026')">
+        <img src="assets/mixedmedia/ArtPeels_16h20w.jpg" alt="Art Peels" />
         <div class="portfolio-overlay">
           <span class="title">Art Peels</span>
           <span class="meta">Mixed media · 16×20 in</span>
         </div>
       </div>
 
-      <div class="portfolio-item" onclick="openLightbox('Untitled', 'Intaglio on Copper Plate · 5×7 in', 'assets/prints/RozaBayrak_Untitled_5h7w.jpg')">
-        <img src="assets/prints/RozaBayrak_Untitled_5h7w.jpg" alt="Untitled" />
+      <div class="portfolio-item" onclick="openLightbox('Untitled', 'Intaglio on Copper Plate · 5×7 in', 'assets/prints/Untitled_5h7w.jpg')">
+        <img src="assets/prints/Untitled_5h7w.jpg" alt="Untitled" />
         <div class="portfolio-overlay">
           <span class="title">Untitled</span>
           <span class="meta">Intaglio on Copper Plate · 5×7 in</span>
@@ -112,6 +116,17 @@
       </div>
     </div>
   </div>
+
+  <!-- ── Newsletter ── -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <span class="newsletter-label">Stay in the loop</span>
+      <form class="newsletter-form" action="https://app.kit.com/forms/9389750/subscriptions" method="POST">
+        <input type="email" name="email_address" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
 
   <!-- ── Footer ── -->
   <footer>
@@ -161,5 +176,6 @@
     });
   </script>
 
+  <script src="newsletter.js"></script>
 </body>
 </html>

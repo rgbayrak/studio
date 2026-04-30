@@ -56,6 +56,7 @@ header {
   background-color: var(--surface);
   border-bottom: 1px solid var(--border);
   padding: 0 2rem;
+  position: relative;
 }
 
 nav {
@@ -103,6 +104,23 @@ nav {
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--text);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background-color: var(--text);
 }
 
 /* ── Main ── */
@@ -210,11 +228,11 @@ main {
 
 .portfolio-main {
   max-width: none;
-  padding: 4rem 0;
+  padding: 4rem 2rem;
 }
 
 .portfolio-main .portfolio-header {
-  padding: 0 2rem 3rem;
+  padding: 0 0 3rem;
 }
 
 .portfolio-grid {
@@ -368,6 +386,193 @@ main {
   text-transform: uppercase;
   color: rgba(247, 243, 239, 0.55);
   margin-top: 0.25rem;
+}
+
+/* ── Studio Map ── */
+.studio-map {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.studio-map-label {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+#world-map {
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+
+/* ── Studio Page ── */
+.studio-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.studio-entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.studio-entry.reverse {
+  direction: rtl;
+}
+
+.studio-entry.reverse > * {
+  direction: ltr;
+}
+
+.studio-entry img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.studio-entry-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.studio-entry-text h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.studio-entry-text p {
+  line-height: 1.8;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.studio-entry-text .studio-meta {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.studio-empty {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2rem;
+}
+
+@media (max-width: 680px) {
+  .studio-entry,
+  .studio-entry.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: 1.5rem;
+  }
+}
+
+/* ── Newsletter ── */
+.newsletter {
+  background-color: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 1.25rem 2rem;
+}
+
+.newsletter-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  min-width: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.75rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: var(--accent);
+}
+
+.newsletter-form input[type="email"]:focus {
+  border-color: var(--muted);
+}
+
+.newsletter-form button {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.newsletter-form button:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.newsletter-success {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+@media (max-width: 680px) {
+  .newsletter-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .newsletter-form {
+    width: 100%;
+  }
 }
 
 /* ── Footer ── */
@@ -663,6 +868,28 @@ footer {
 
   .page-sidebar {
     display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    gap: 1.25rem;
+    z-index: 99;
+  }
+
+  .nav-links.open {
+    display: flex;
   }
 }
 

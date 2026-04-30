@@ -14,13 +14,17 @@
   <!-- ── Navigation ── -->
   <header>
     <nav>
-      <a href="index.html" class="nav-logo"><img src="assets/images/logo.svg" alt="" />RGB Art Studio</a>
+      <a href="gallery.html" class="nav-logo"><img src="assets/images/logo.svg" alt="" />RGB Art Studio</a>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">About</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="exhibitions.html">Exhibitions</a></li>
+        <!-- <li><a href="studio.html">Studio</a></li> -->
         <!-- <li><a href="education.html">Education</a></li> -->
+        <li><a href="index.html" class="active">About</a></li>
       </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
@@ -37,14 +41,14 @@
           <p>
             I am both a visual artist and a computational scientist. Born
             and raised in Turkey, I moved to the United States in 2012 to pursue
-            higher education. As a scientist, I study the structure within noise, 
+            higher education. As a scientist, I study the structure within noise,
             uncovering patterns in signal, and searching for
             meaning in complexity. As a watercolor artist, I explore those same
             questions through color, shape, and gesture.
             I am drawn to impressionism touched by realism, seeking vibrant,
             coherent, and harmonious color. I want the work to feel alive, organized,
-            and in motion. For me, painting is a space where I create my own world, 
-            a visual language that allows exploration of what cannot always be spoken—a way 
+            and in motion. For me, painting is a space where I create my own world,
+            a visual language that allows exploration of what cannot always be spoken—a way
             to hold detail and ambiguity within the same space.
           </p>
           <p>
@@ -67,6 +71,17 @@
       </div>
     </div>
   </main>
+
+  <!-- ── Newsletter ── -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <span class="newsletter-label">Stay in the loop</span>
+      <form class="newsletter-form" action="https://app.kit.com/forms/9389750/subscriptions" method="POST">
+        <input type="email" name="email_address" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
 
   <!-- ── Footer ── -->
   <footer>
@@ -92,5 +107,7 @@
     </div>
   </footer>
 
+
+  <script src="newsletter.js"></script>
 </body>
 </html>
