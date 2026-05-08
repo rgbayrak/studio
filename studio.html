@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio — RGB Art Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Over+the+Rainbow&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <header>
+    <nav>
+      <a href="gallery.html" class="nav-logo"><img src="assets/images/logo.svg" alt="" />RGB Art Studio</a>
+      <ul class="nav-links">
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="exhibitions.html">Exhibitions</a></li>
+        <!-- <li><a href="studio.html" class="active">Studio</a></li> -->
+        <!-- <li><a href="education.html">Education</a></li> -->
+        <li><a href="index.html">About</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Toggle menu" onclick="this.closest('nav').querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ── Main ── -->
+  <main>
+    <div class="portfolio-header">
+      <h1>Studio</h1>
+      <p>Behind the work — the table, the light, the trail</p>
+    </div>
+
+    <div class="studio-entries">
+
+      <!--
+        To add an entry, duplicate one of the blocks below.
+        Alternate between .studio-entry and .studio-entry.reverse for left/right flip.
+
+        <div class="studio-entry">
+          <img src="assets/studio/filename.jpg" alt="Description" />
+          <div class="studio-entry-text">
+            <span class="studio-meta">Location · Year</span>
+            <h2>Title</h2>
+            <p>Caption or story.</p>
+          </div>
+        </div>
+      -->
+
+    </div>
+
+    <!-- ── World Map ── -->
+    <div class="studio-map">
+      <p class="studio-map-label">Where I paint</p>
+      <div id="world-map"></div>
+    </div>
+  </main>
+
+  <!-- ── Newsletter ── -->
+  <section class="newsletter">
+    <div class="newsletter-inner">
+      <span class="newsletter-label">Stay in the loop</span>
+      <form class="newsletter-form" action="https://app.kit.com/forms/9389750/subscriptions" method="POST">
+        <input type="email" name="email_address" placeholder="your@email.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <span>&copy; 2026 RGB Art Studio</span>
+      <div class="footer-contact">
+        <a href="https://instagram.com/thergbart" target="_blank" rel="noopener">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/>
+          </svg>
+          @thergbart
+        </a>
+        <a href="mailto:rgbayrak@gmail.com">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <polyline points="2,4 12,13 22,4"/>
+          </svg>
+          rgbayrak@gmail.com
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+  <script>
+    const W = 800, H = 380;
+
+    const svg = d3.select('#world-map')
+      .append('svg')
+      .attr('viewBox', `0 0 ${W} ${H}`)
+      .style('width', '100%')
+      .style('height', 'auto')
+      .style('display', 'block');
+
+    svg.append('rect')
+      .attr('width', W).attr('height', H)
+      .attr('fill', 'var(--bg)');
+
+    const projection = d3.geoNaturalEarth1()
+      .scale(138)
+      .translate([W / 2, H / 2 + 10]);
+
+    const path = d3.geoPath().projection(projection);
+
+    const locations = [
+      { label: 'Turkey',     lon: 33,    lat: 38.5, dx:  7, dy: -6, anchor: 'start' },
+      { label: 'Nashville',  lon: -86.8, lat: 36.2, dx:  7, dy:  4, anchor: 'start' },
+      { label: 'California', lon: -120,  lat: 37,   dx: -7, dy:  4, anchor: 'end'   },
+      { label: 'Italy',      lon: 12.5,  lat: 41.9, dx:  7, dy: 10, anchor: 'start' },
+      { label: 'France',     lon: 2.4,   lat: 46.5, dx: -7, dy: -5, anchor: 'end'   },
+    ];
+
+    fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+      .then(r => r.json())
+      .then(world => {
+        const land      = topojson.feature(world, world.objects.land);
+        const graticule = d3.geoGraticule()();
+        const sphere    = { type: 'Sphere' };
+
+        svg.append('path')
+          .datum(sphere)
+          .attr('d', path)
+          .attr('fill', 'none')
+          .attr('stroke', 'var(--border)')
+          .attr('stroke-width', 0.4);
+
+        svg.append('path')
+          .datum(graticule)
+          .attr('d', path)
+          .attr('fill', 'none')
+          .attr('stroke', 'var(--border)')
+          .attr('stroke-width', 0.25)
+          .attr('stroke-dasharray', '2,3');
+
+        svg.append('path')
+          .datum(land)
+          .attr('d', path)
+          .attr('fill', 'var(--surface)')
+          .attr('stroke', 'var(--border)')
+          .attr('stroke-width', 0.5);
+
+        const g = svg.append('g');
+
+        locations.forEach(loc => {
+          const [x, y] = projection([loc.lon, loc.lat]);
+
+          g.append('circle')
+            .attr('cx', x).attr('cy', y)
+            .attr('r', 3.5)
+            .attr('fill', 'var(--accent)')
+            .attr('stroke', 'var(--text)')
+            .attr('stroke-width', 0.8);
+
+          g.append('text')
+            .attr('x', x + loc.dx)
+            .attr('y', y + loc.dy)
+            .attr('text-anchor', loc.anchor)
+            .attr('font-family', "'Helvetica Neue', Arial, sans-serif")
+            .attr('font-size', '8.5')
+            .attr('letter-spacing', '0.09em')
+            .attr('fill', 'var(--muted)')
+            .text(loc.label.toUpperCase());
+        });
+      });
+  </script>
+
+  <script src="newsletter.js"></script>
+</body>
+</html>
