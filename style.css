@@ -824,6 +824,16 @@ footer {
   color: var(--text);
 }
 
+.sold-dot {
+  display: inline-block;
+  width: 0.45em;
+  height: 0.45em;
+  border-radius: 50%;
+  background: #c0392b;
+  margin-left: 0.45em;
+  vertical-align: middle;
+}
+
 .exhibit-detail {
   font-family: var(--font-ui);
   font-size: 0.75rem;
