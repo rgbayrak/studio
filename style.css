@@ -826,11 +826,11 @@ footer {
 
 .sold-dot {
   display: inline-block;
-  width: 0.45em;
-  height: 0.45em;
+  width: 0.8em;
+  height: 0.8em;
   border-radius: 50%;
   background: #c0392b;
-  margin-left: 0.45em;
+  margin-left: 0.5em;
   vertical-align: middle;
 }
 
